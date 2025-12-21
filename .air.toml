@@ -3,17 +3,17 @@ tmp_dir = "bin"
 
 [build]
 args_bin = []
-bin = "./bin/main"
-cmd = "make notify-templ-proxy && npm run build && go build -tags local -o ./bin/main ./cmd/main"
+bin = ".\\bin\\main.exe"
+cmd = "templ generate ; go build -tags local -o ./bin/main.exe ./cmd/main"
 delay = 1000
-exclude_dir = ["tmp", "bin"]
+exclude_dir = ["tmp", "bin", "node_modules", ".git"]
 exclude_file = []
-exclude_regex = []
+exclude_regex = ["_templ.go"]
 exclude_unchanged = false
 follow_symlink = false
-full_bin = ""
+#full_bin = ".\\bin\\main.exe"
 include_dir = []
-include_ext = ["go", "html", "css"]
+include_ext = ["go", "html", "css", "templ", "env"]
 include_file = []
 kill_delay = "0s"
 log = "build-errors.log"
@@ -25,6 +25,7 @@ rerun = false
 rerun_delay = 500
 send_interrupt = false
 stop_on_error = false
+shell = "cmd"
 
 [color]
 app = ""
