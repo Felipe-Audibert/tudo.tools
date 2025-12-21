@@ -1,0 +1,8 @@
+[build]
+bin = "./tmp/tudo-tools"
+cmd = "go build -o ./tmp/tudo-tools ./cmd"
+#include_dir = ["cmd", "handlers", "templates", "views"]
+log = "stdout"
+
+[run]
+cmd = "./tmp/tudo-tools"

@@ -4,8 +4,13 @@
 *.dll
 *.so
 *.dylib
+tailwind.css
 tmp/
 bin/
+
+# Templ generated files
+templates/*.go
+views/*.go
 
 # Other test artifacts
 *.out
