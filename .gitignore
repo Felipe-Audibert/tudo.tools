@@ -1,0 +1,23 @@
+# Binaries for programs and plugins
+*.exe
+*.test
+*.dll
+*.so
+*.dylib
+tmp/
+bin/
+
+# Other test artifacts
+*.out
+coverage.*
+
+# Dependency directories
+vendor/
+node_modules/
+
+# Go workspace file
+go.work
+go.work.sum
+
+# Editor/IDE files
+.idea/
