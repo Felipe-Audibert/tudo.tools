@@ -3,15 +3,21 @@ tmp_dir = "bin"
 
 [build]
 args_bin = []
+
+## Windows Configuration
 bin = ".\\bin\\main.exe"
-cmd = "templ generate ; go build -tags local -o ./bin/main.exe ./cmd/main"
+cmd = "templ generate ; npm run build ; go build -tags local -o ./bin/main.exe ./cmd/main"
+
+## MacOS/Linux Configuration
+#bin = "./bin/main.exe"
+#cmd = "templ generate && npm run build && go build -tags local -o ./bin/main.exe ./cmd/main"
+
 delay = 1000
 exclude_dir = ["tmp", "bin", "node_modules", ".git"]
 exclude_file = []
 exclude_regex = ["_templ.go"]
 exclude_unchanged = false
 follow_symlink = false
-#full_bin = ".\\bin\\main.exe"
 include_dir = []
 include_ext = ["go", "html", "css", "templ", "env"]
 include_file = []
@@ -44,12 +50,3 @@ clean_on_exit = false
 [screen]
 clear_on_rebuild = false
 keep_scroll = true
-#
-#[build]
-#bin = "./tmp/tudo-tools"
-#cmd = "go build -o ./tmp/tudo-tools ./cmd"
-##include_dir = ["cmd", "handlers", "templates", "views"]
-#log = "stdout"
-#
-#[run]
-#cmd = "./tmp/tudo-tools"
