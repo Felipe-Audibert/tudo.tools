@@ -13,11 +13,18 @@ templ Head(title string) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.6/dist/htmx.min.js" integrity="sha384-Akqfrbj/HpNVo8k11SXBb6TlBWmXXlYQrCSqEWmyKJe+hDm3Z/B2WVG4smwBkRVm" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
         <link href={"/views/assets/css/tailwind.css?v=" + time.Now().String()} rel="stylesheet" hx-preserve="true"/>
+        <link href={"/views/assets/css/styles.css?v=" + time.Now().String()} rel="stylesheet" hx-preserve="true"/>
+        <script src="/views/assets/js/jquery-3.7.1.min.js"></script>
+        <script src={"/views/assets/js/app.js?v=" + time.Now().String()}></script>
+        <script src="https://kit.fontawesome.com/a9445b8ed4.js" crossorigin="anonymous"></script>
 
         <title>{ getTitle(title) }</title>
 
-        <!-- <link rel="icon" type="image/svg+xml" href="/static/favicon.ico"/> -->
+        <link rel="icon" type="image/svg+xml" href="/views/assets/icon.png"/>
     </head>
 }
 

@@ -1,0 +1,7 @@
+.sidebar-list-item i {
+    transition: all 300ms;
+}
+
+.sidebar-list-item.opened > .summary > i {
+    rotate: 90deg;
+}

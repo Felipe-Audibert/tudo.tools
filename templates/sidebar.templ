@@ -1,0 +1,38 @@
+package templates
+
+import (
+    "tudo-tools/views/constants"
+)
+
+templ SidebarMenu(curMenu *constants.Menu) {
+    <li class="sidebar-list-item">
+        if curMenu.Children != nil {
+            <div class="summary flex items-center justify-between cursor-pointer py-1 px-2 rounded-sm hover:bg-gray-200 transition-all">
+                <span class="flex items-baseline gap-1 flex-1 truncate min-w-0">
+                    if curMenu.Icon != "" {
+                        <i class={"align-middle " + curMenu.Icon}></i>
+                    }
+                    {curMenu.Title}
+                </span>
+                <i class="fa-solid fa-chevron-right align-middle"></i>
+            </div>
+            <ul class="pl-1.5 pt-1 m-0 list-none max-h-0 overflow-hidden transition-all duration-300 sidebar-list-children w-full">
+                for _, children := range *curMenu.Children {
+                    @SidebarMenu(&children)
+                }
+            </ul>
+        } else {
+            <a class="flex cursor-pointer py-1 px-2 rounded-sm hover:bg-gray-200 transition-all truncate" href={curMenu.Url}>{curMenu.Title}</a>
+        }
+    </li>
+}
+
+templ Sidebar() {
+    <aside class="bg-white border-r-2 border-gray-300 p-2">
+        <ul class="m-0 list-none sidebar-list pt-2 w-full flex flex-col gap-2">
+            for _, menu := range constants.GetMenus() {
+                @SidebarMenu(&menu)
+            }
+        </ul>
+    </aside>
+}
