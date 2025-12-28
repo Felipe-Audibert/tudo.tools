@@ -13,8 +13,10 @@ func main() {
 	router.Static("/views/assets", "./views/assets")
 
 	homeHandler := handers.HomeHandler{}
+	metrosHandler := handers.MetrosHandler{}
 
 	router.GET("/", homeHandler.GetHome)
+	router.GET("/Metros", metrosHandler.GetMetros)
 
 	err := router.Run(":8080")
 	if err != nil {

@@ -15,8 +15,12 @@ func GetMenus() []Menu {
 			Children: &[]Menu{
 				{
 					Url:   "/",
-					Title: "Teste Filho",
+					Title: "Tamanhos/Distâncias",
 					Children: &[]Menu{
+						{
+							Url:   "/Metros",
+							Title: "Metros",
+						},
 						{
 							Url:   "/test3",
 							Title: "Test3",
