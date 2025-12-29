@@ -1,4 +1,4 @@
-package handers
+package handlers
 
 import (
 	"net/http"
@@ -10,5 +10,5 @@ import (
 type MetrosHandler struct{}
 
 func (h *MetrosHandler) GetMetros(ctx *gin.Context) {
-	ctx.HTML(http.StatusOK, "/Metros", views.Metros())
+	ctx.HTML(http.StatusOK, "/Metros", views.Metros(ctx.MustGet("htmxRequest").(bool)))
 }

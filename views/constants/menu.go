@@ -11,7 +11,7 @@ func GetMenus() []Menu {
 	return []Menu{
 		{
 			Icon:  "fa-solid fa-arrow-right-arrow-left",
-			Title: "Convertedores",
+			Title: "Converter",
 			Children: &[]Menu{
 				{
 					Url:   "/",
@@ -27,20 +27,12 @@ func GetMenus() []Menu {
 						},
 					},
 				},
-			},
-		},
-		{
-			Title: "Test2",
-			Children: &[]Menu{
 				{
-					Url:   "/test3",
-					Title: "Test3",
+					Url:   "/convert/distance",
+					Title: "Distância",
+					Icon:  "fa-solid fa-ruler-combined",
 				},
 			},
-		},
-		{
-			Url:   "/test3",
-			Title: "Teste",
 		},
 	}
 }

@@ -2,8 +2,8 @@ package views
 
 import "tudo-tools/templates"
 
-templ Metros() {
-    @templates.Base("") {
+templ Metros(htmxReq bool) {
+    @templates.Base("", htmxReq) {
     <span>Hello Metrosss</span>
     }
 }

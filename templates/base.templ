@@ -1,14 +1,18 @@
 package templates
 
-templ Base(title string) {
-    <html lang="pt-br">
-        @Head(title)
-        <body class="bg-gray-200 grid grid-rows-[80px_1fr] grid-cols-[280px_1fr] max-h-screen">
-            @Header()
-            @Sidebar()
-            <main class="p-4">
-                { children... }
-            </main>
-        </body>
-    </html>
+templ Base(title string, htmxReq bool) {
+    if !htmxReq {
+        <html lang="pt-br">
+            @Head(title)
+            <body class="bg-gray-200 grid grid-rows-[80px_1fr] grid-cols-[280px_1fr] max-h-screen">
+                @Header()
+                @Sidebar()
+                <main id="main" class="p-4">
+                    { children... }
+                </main>
+            </body>
+        </html>
+    } else {
+        { children... }
+    }
 }

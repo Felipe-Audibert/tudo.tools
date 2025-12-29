@@ -22,14 +22,19 @@ templ SidebarMenu(curMenu *constants.Menu) {
                 }
             </ul>
         } else {
-            <a class="flex cursor-pointer py-1 px-2 rounded-sm hover:bg-gray-200 transition-all truncate" href={curMenu.Url}>{curMenu.Title}</a>
+            <a hx-get={curMenu.Url} hx-push-url="true" hx-replace-url="teste" class="flex items-baseline cursor-pointer py-1 px-2 rounded-sm hover:bg-gray-200 transition-all truncate">
+            if curMenu.Icon != "" {
+                <i class={"align-middle " + curMenu.Icon}></i>
+            }
+            {curMenu.Title}
+            </a>
         }
     </li>
 }
 
 templ Sidebar() {
     <aside class="bg-white border-r-2 border-gray-300 p-2">
-        <ul class="m-0 list-none sidebar-list pt-2 w-full flex flex-col gap-2">
+        <ul hx-target="#main" class="m-0 list-none sidebar-list pt-2 w-full flex flex-col gap-2">
             for _, menu := range constants.GetMenus() {
                 @SidebarMenu(&menu)
             }
