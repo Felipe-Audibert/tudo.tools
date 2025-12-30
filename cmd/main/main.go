@@ -20,7 +20,7 @@ func main() {
 
 	router.GET("/", homeHandler.GetHome)
 	router.GET("/convert/distance", convertHandler.GetDistance)
-	router.POST("/convert/distance", convertHandler.ConvertDistance)
+	router.POST("/convert", convertHandler.Convert)
 	router.GET("/Metros", metrosHandler.GetMetros)
 
 	err := router.Run(":8080")

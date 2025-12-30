@@ -1,41 +1,14 @@
 package views_convert
 
 import "tudo-tools/templates"
+import "tudo-tools/views/components"
+import "tudo-tools/views/constants"
+
 
 templ Distance(htmxReq bool) {
+    {{options := constants.GetDistanceConverterOptions()}}
+
     @templates.Base("", htmxReq) {
-        <form class="flex flex-col w-fit" hx-post="/convert-distance" hx-target="#output_value" hx-swap="innerHTML">
-            <div class="flex gap-2 justify-between w-full">
-                <label for="input_value"></label>
-                <input id="input_value" name="input_value" placeholder="Valor de origem" type="number" />
-
-                <label for="input_unit"></label>
-                <select id="input_unit" name="input_unit">
-                    <option>Milímetro</option>
-                    <option>Centímetro</option>
-                    <option>Decímetro</option>
-                    <option>Metro</option>
-                    <option>Decâmetro</option>
-                    <option>Hecâmetro</option>
-                    <option>Kilômetro</option>
-                </select>
-            </div>
-            <div class="flex gap-2 mt-2 justify-between w-full">
-                <span id="output_value">Valor convertido</span>
-
-                <label for="output_unit"></label>
-                <select id="output_unit" name="output_unit">
-                    <option>Milímetro</option>
-                    <option>Centímetro</option>
-                    <option>Decímetro</option>
-                    <option>Metro</option>
-                    <option>Decâmetro</option>
-                    <option>Hecâmetro</option>
-                    <option>Kilômetro</option>
-                </select>
-            </div>
-
-            <button class="mt-4" type="submit">Converter</button>
-        </form>
+        @components.ConverterForm("Distance converter", "multiply", "0.0001", options, options)
     }
 }
