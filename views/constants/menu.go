@@ -32,6 +32,11 @@ func GetMenus() []Menu {
 					Title: "Distância",
 					Icon:  "fa-solid fa-ruler-combined",
 				},
+				{
+					Url:   "/convert/time",
+					Title: "Fuso horário",
+					Icon:  "fa-regular fa-clock",
+				},
 			},
 		},
 	}

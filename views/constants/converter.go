@@ -1,5 +1,11 @@
 package constants
 
+import (
+	"sort"
+
+	"github.com/tkuchiki/go-timezone"
+)
+
 type SelectOption struct {
 	Label string
 	Value string
@@ -36,4 +42,32 @@ func GetDistanceConverterOptions() []SelectOption {
 			Value: "1000",
 		},
 	}
+}
+
+func GetTimeConverterOptions() []SelectOption {
+	tz := timezone.New()
+	timezones := tz.Timezones()
+
+	seen := map[string]struct{}{}
+	options := []SelectOption{}
+
+	for _, values := range timezones {
+		for _, value := range values {
+			if _, ok := seen[value]; ok {
+				continue
+			}
+
+			seen[value] = struct{}{}
+			options = append(options, SelectOption{
+				Label: value,
+				Value: value,
+			})
+		}
+	}
+
+	sort.Slice(options, func(i, j int) bool {
+		return options[i].Label < options[j].Label
+	})
+
+	return options
 }

@@ -1,0 +1,15 @@
+package views_convert
+
+import (
+    "tudo-tools/templates"
+    "tudo-tools/views/constants"
+	"tudo-tools/views/components"
+)
+
+templ Time(htmxReq bool) {
+    {{optioons := constants.GetTimeConverterOptions()}}
+
+	@templates.Base("", htmxReq) {
+	    @components.ConverterForm("Timezone converter", "timezone", "", "00:00", optioons, optioons, "time")
+	}
+}

@@ -9,6 +9,6 @@ templ Distance(htmxReq bool) {
     {{options := constants.GetDistanceConverterOptions()}}
 
     @templates.Base("", htmxReq) {
-        @components.ConverterForm("Distance converter", "multiply", "0.0001", options, options)
+        @components.ConverterForm("Distance converter", "multiply", "0.0001", "", options, options, "number")
     }
 }

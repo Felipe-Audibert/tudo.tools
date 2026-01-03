@@ -22,7 +22,7 @@ templ SidebarMenu(curMenu *constants.Menu) {
                 }
             </ul>
         } else {
-            <a hx-get={curMenu.Url} hx-push-url="true" hx-replace-url="teste" class="flex items-baseline cursor-pointer py-1 px-2 rounded-sm hover:bg-gray-200 transition-all truncate">
+            <a hx-get={curMenu.Url} hx-push-url="true" hx-trigger="click throttle:300ms" class="flex items-baseline cursor-pointer py-1 px-2 rounded-sm hover:bg-gray-200 transition-all truncate">
             if curMenu.Icon != "" {
                 <i class={"align-middle " + curMenu.Icon}></i>
             }

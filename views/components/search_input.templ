@@ -1,0 +1,20 @@
+package components
+
+import (
+    "tudo-tools/views/constants"
+)
+
+templ SearchInput(id string, options *[]constants.SelectOption, autofocus bool) {
+    <div class="relative flex items-center shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight h-10 select-search">
+        <input class="focus:outline-none focus:shadow-outline h-full flex-1 select-search__input no-tracking" id={id + "_search"} type="search" autofocus={autofocus}/>
+        <i class="fa-solid fa-search"></i>
+        <input class="select-search__value" type="text" style="display: none" id={id} name={id} required />
+        <div id={id + "_dropdown"} class="select-search__options absolute top-full left-0 right-0 mt-2 bg-white shadow-xl rounded p-2 max-h-32 overflow-auto hidden z-10" tabindex="0">
+            <ul class="list-none margin-0">
+                for _, option := range *options {
+                    <li class="hover:bg-gray-200 rounded mb-1 p-1 cursor-pointer" data-value={option.Value} data-label={option.Label}>{ option.Label }</li>
+                }
+            </ul>
+        </div>
+    </div>
+}
