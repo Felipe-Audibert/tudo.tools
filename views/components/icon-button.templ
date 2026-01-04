@@ -1,0 +1,10 @@
+package components
+
+templ IconButton(text string, classes string, icon string) {
+    <button class={"bg-gray-500 rounded text-white p-2 px-3 cursor-pointer " + classes}>
+        {text}
+        if icon != "" {
+            <i class={icon}></i>
+        }
+    </button>
+}
