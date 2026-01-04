@@ -44,6 +44,23 @@ func GetDistanceConverterOptions() []SelectOption {
 	}
 }
 
+func GetWeightConverterOptions() []SelectOption {
+	return []SelectOption{
+		{
+			Label: "Miligrama (g)",
+			Value: "0.001",
+		},
+		{
+			Label: "Grama (g)",
+			Value: "1",
+		},
+		{
+			Label: "Kilograma (Kg)",
+			Value: "1000",
+		},
+	}
+}
+
 func GetTimeConverterOptions() []SelectOption {
 	tz := timezone.New()
 	timezones := tz.Timezones()

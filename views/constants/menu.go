@@ -37,6 +37,10 @@ func GetMenus() []Menu {
 					Title: "Fuso horário",
 					Icon:  "fa-regular fa-clock",
 				},
+				{
+					Url:   "/convert/weight",
+					Title: "Peso",
+					Icon:  "fa-solid fa-balance-scale"},
 			},
 		},
 	}

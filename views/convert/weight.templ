@@ -1,0 +1,14 @@
+package views_convert
+
+import "tudo-tools/templates"
+import "tudo-tools/views/components"
+import "tudo-tools/views/constants"
+
+
+templ Weight(htmxReq bool) {
+    {{options := constants.GetWeightConverterOptions()}}
+
+    @templates.Base("", htmxReq) {
+        @components.ConverterForm("Weight converter", "multiply", "1", "", options, options, "number")
+    }
+}

@@ -12,7 +12,7 @@ import "tudo-tools/templates"
 import "tudo-tools/views/components"
 import "tudo-tools/views/constants"
 
-func Distance(htmxReq bool) templ.Component {
+func Weight(htmxReq bool) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -33,7 +33,7 @@ func Distance(htmxReq bool) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		options := constants.GetDistanceConverterOptions()
+		options := constants.GetWeightConverterOptions()
 		templ_7745c5c3_Var2 := templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 			templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 			templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
@@ -46,7 +46,7 @@ func Distance(htmxReq bool) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = components.ConverterForm("Distance converter", "multiply", "0.0001", "", options, options, "number").Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = components.ConverterForm("Weight converter", "multiply", "1", "", options, options, "number").Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

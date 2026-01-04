@@ -44,7 +44,7 @@ func ConverterForm(title string, conversion string, step string, defaultValue st
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</h1><form class=\"bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4\" hx-post=\"/convert\" hx-target=\"#to-output\" hx-swap=\"innerHTML\" hx-trigger=\"keyup from:input:not(.no-tracking) delay:300ms, change from:input:not(.no-tracking), change from:select\" onsubmit=\"event.preventDefault();\" hx-validate=\"true\"><input type=\"hidden\" name=\"conversion\" value=\"")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</h1><form class=\"bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4\" hx-post=\"/convert\" hx-target=\"#to-output\" hx-swap=\"innerHTML\" hx-trigger=\"keyup from:input:not(.no-tracking) delay:300ms, change from:input:not(.no-tracking) delay:300ms, change from:select delay:300ms\" onsubmit=\"event.preventDefault();\" hx-validate=\"true\"><input type=\"hidden\" name=\"conversion\" value=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -100,19 +100,27 @@ func ConverterForm(title string, conversion string, step string, defaultValue st
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = SearchInput("from-select", &fromOptions, false).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = SearchInput("from-select", &fromOptions).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</div></div><div class=\"mb-4\"><label class=\"block text-gray-700 text-sm font-bold mb-2\" for=\"to-input\">Para</label><div class=\"flex items-center justify-between gap-2\"><div class=\"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-10\" id=\"to-output\"></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "</div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = SearchInput("to-select", &toOptions, false).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = IconButton("Alternar", "switch-button mt-2 mb-6", "fa-solid fa-arrow-right-arrow-left rotate-90").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</div></div></form>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "<div class=\"mb-4\"><label class=\"block text-gray-700 text-sm font-bold mb-2\" for=\"to-input\">Para</label><div class=\"flex items-center justify-between gap-2\"><div class=\"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-10\" id=\"to-output\"></div>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = SearchInput("to-select", &toOptions).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</div></div></form><script src=\"/views/assets/js/converter_form.js\" type=\"text/javascript\"></script>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

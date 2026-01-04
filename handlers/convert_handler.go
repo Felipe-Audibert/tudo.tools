@@ -12,6 +12,10 @@ import (
 
 type ConvertHandler struct{}
 
+func (handler ConvertHandler) GetWeight(ctx *gin.Context) {
+	ctx.HTML(http.StatusOK, "", views_convert.Weight(ctx.MustGet("htmxRequest").(bool)))
+}
+
 func (handler ConvertHandler) GetDistance(ctx *gin.Context) {
 	ctx.HTML(http.StatusOK, "", views_convert.Distance(ctx.MustGet("htmxRequest").(bool)))
 }

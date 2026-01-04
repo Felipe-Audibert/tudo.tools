@@ -20,6 +20,7 @@ func main() {
 
 	router.GET("/", homeHandler.GetHome)
 	router.GET("/convert/distance", convertHandler.GetDistance)
+	router.GET("/convert/weight", convertHandler.GetWeight)
 	router.GET("/convert/time", convertHandler.GetTime)
 	router.POST("/convert", convertHandler.Convert)
 	router.GET("/Metros", metrosHandler.GetMetros)
